@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+</head>
+<link rel="stylesheet" href="styles.css">
+<body>
+   <p id="titulo">Is it a Palindrome?</p>
+   <div id="checker">
+    <h2>Enter in text to check for a palindrome</h2>
+    <input id="text-input" placeholder="Enter text"></input>
+    <button id="check-btn">Check</button>
+    <div id="result">
+   </div>
+   
+
+   </div>
+
+   <script>
+       // Seleccionamos los elementos
+       const checkBtn = document.getElementById("check-btn");
+       const textInput = document.getElementById("text-input");
+       const result = document.getElementById("result").querySelector("p");
+
+       // Agregamos un listener al botón
+       checkBtn.addEventListener("click", function() {
+           const inputText = textInput.value.trim();
+
+           // Caso 1: Verificar si el campo está vacío
+           if (!inputText) {
+               alert("Please input a value");
+           } 
+           // Caso 2: Verificar si es una letra "A" o "a"
+           else if (inputText === "A" || inputText === "a") {
+               result.textContent = `${inputText} is a palindrome`;
+           } 
+           // Caso 3: Verificar si es una sola letra diferente de "A" (todas las letras individuales son palíndromos)
+           else if (inputText.length === 1) {
+               result.textContent = `${inputText} is a palindrome`;
+           } 
+           // Caso 4: Verificar si el texto completo es un palíndromo (más de una letra, incluyendo caracteres especiales)
+           else {
+               // Convertimos el texto a minúsculas
+               const cleanedText = inputText.toLowerCase().replace(/[^a-z0-9]/g, '');
+               const reversedText = cleanedText.split('').reverse().join('');
+
+               // Comparamos el texto normal con el texto invertido
+               if (cleanedText === reversedText) {
+                   result.textContent = `${inputText} is a palindrome`;
+               } else {
+                   result.textContent = `${inputText} is not a palindrome`;
+               }
+           }
+       });
+   </script>
+</body>
+</html>
