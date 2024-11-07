@@ -1,20 +1,60 @@
-body{
-background-color: #0a0a23;
-display: block;
+body {
+    background-color: #0a0a23;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Alinea los elementos en columna */
+    height: 100vh;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#titulo{
-    color: white;
-    display: block;
-    font-size: 2em;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    unicode-bidi: isolate;
-}
-#checker{
-    background-color: white;
-    border-radius: 10;
 
+#titulo {
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0.67em 0;
+    text-align: center;
+}
+
+#checker {
+    width: min(100vw, 450px);
+    min-height: 100px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: white;
+    box-shadow: 0 6px 6px #002ead;
+}
+
+#texto {
+    color: #0a0a23;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#check-btn {
+    background-color: #5a01a7;
+    border-radius: 5px;
+}
+
+#recuadro {
+    background-color: #00471b;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 450px;
+    margin-top: 20px; /* Separa el recuadro verde del cuadro blanco */
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#dato {
+    font-style: italic;
+    font-weight: bold;
+    color: #e5e5e5;
 }
