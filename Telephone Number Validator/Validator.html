@@ -19,17 +19,29 @@
         const clearBtn = document.getElementById("clear-btn");
         const inputText = document.getElementById("user-input");
         const result = document.getElementById("results-div");
-        
-        checkBtn.addEventListener("click", function(){
+
+        // Expresión regular para validar el número de teléfono
+        const phoneRegex = /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
+
+        checkBtn.addEventListener("click", function() {
             const trimmedInput = inputText.value.trim();
+
             if (!trimmedInput) {
                 alert("Please provide a phone number");
             } else {
+                // Validación con la expresión regular
+                if (phoneRegex.test(trimmedInput)) {
+                    result.textContent = `Valid US number: ${trimmedInput}`;
+                    result.style.color = "green";  // Cambiar color a verde
+                } else {
+                    result.textContent = `Invalid US number: ${trimmedInput}`;
+                    result.style.color = "red";  // Cambiar color a rojo
+                }
             }
         });
 
-        clearBtn.addEventListener("click",function(){
-            result.textContent= " ";
+        clearBtn.addEventListener("click", function() {
+            result.textContent = "";
             inputText.value = "";
         });
     </script>
